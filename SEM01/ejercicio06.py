@@ -1,4 +1,9 @@
 #EJERCICIO 6: CADENAS DE TEXTO
+#Pregunta: ¿Dónde se utilizan las cadenas de texto en aplicaciones reales?
+#En aplicaciones reales, las cadenas de texto son esenciales para gestionar datos crticos, como nombres de usuario, 
+#direcciones y correos institucionales.
+
+
 frase = input("Ingrese una frase: ")
 
 #Muestre la cantidad de caracteres.

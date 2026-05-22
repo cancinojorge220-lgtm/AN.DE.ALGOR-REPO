@@ -1,4 +1,10 @@
 #EJERCICIO 4: TUPLAS
+#Pregunta: ¿Por qué las tuplas son estructuras inmutables? 
+#Las tuplas se definen como estructuras inmutables debido a que, tras su creación, no admiten modificaciones posteriores. 
+#Esto implica la imposibilidad de añadir, suprimir o alterar sus elementos una vez han sido instanciados.
+#Dicha propiedad resulta fundamental para garantizar la integridad de datos que deben permanecer constantes, 
+#tales como coordenadas geográficas, fechas específicas o parámetros de configuración del sistema.
+
 LengProgramacion = ("Java","C#","Python","C++","Go")
 
 #Mostrar Lenguajes de Programación

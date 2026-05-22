@@ -1,4 +1,9 @@
 #EJERCICIO 5: DICCIONARIOS
+#Pregunta: ¿Cuál es la diferencia fundamental entre un diccionario y una lista? 
+#A diferencia de una lista, que se define como una agrupación ordenada de ítems, 
+#un diccionario se caracteriza por ser una estructura basada en asociaciones de pares clave-valor.
+
+
 trabajador={
     "nombre": "Jorge",
     "edad": 30,
