@@ -1,8 +1,4 @@
 #EJERCICIO 5: DICCIONARIOS
-#¿Cuál es la diferencia entre un diccionario y una lista?
-#La diferencia entre un diccionario y una lista es que un diccionario es una colección de pares clave-valor,
-#mientras que una lista es una colección ordenada de elementos.
-
 trabajador={
     "nombre": "Jorge",
     "edad": 30,

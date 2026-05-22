@@ -1,7 +1,4 @@
 #EJERCICIO 4: TUPLAS
-#¿Por qué las tuplas son estructuras inmutables?
-#Las tuplas son estructuras inmutables porque una vez que se han creado, no se pueden modificar.
-
 LengProgramacion = ("Java","C#","Python","C++","Go")
 
 #Mostrar Lenguajes de Programación
