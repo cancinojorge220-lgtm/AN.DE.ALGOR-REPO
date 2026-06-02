@@ -1,6 +1,6 @@
 # Complejidad O(n)
 
-numero = int(input("Ingrese un numero del 1 al 100: "))
+numero = int(input("Ingrese un numero del 1 al 100: ")) 
 
 def encontrarNumerosImpares(numero):
     numeros_impares = []
