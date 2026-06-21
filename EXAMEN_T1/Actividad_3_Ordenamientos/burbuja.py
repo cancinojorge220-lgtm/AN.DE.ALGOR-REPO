@@ -1,4 +1,6 @@
-import sys; sys.path.append('..')
+import sys
+import os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from datos_pedidos import pedidos
 
 def burbuja(lista):
