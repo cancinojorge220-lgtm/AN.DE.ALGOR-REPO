@@ -1,4 +1,4 @@
-# Algoritmos de Búsqueda
+
 pedidos = [
     {"codigo": "P001", "cliente": "Juan Perez", "ciudad": "Lima", "peso": 4.5, "prioridad": "Alta", "costo": 25.0},
     {"codigo": "P002", "cliente": "Maria Rogers", "ciudad": "Trujillo", "peso": 12.0, "prioridad": "Media", "costo": 50.0},
@@ -23,7 +23,7 @@ def busqueda_lineal(pedidos, codigo_buscado):
     for i in range(len(pedidos)):
         if pedidos[i]["codigo"] == codigo_buscado:
             return pedidos[i]
-    return None
+    return "Pedido no encontrado"
 
 
 # 2. BÚSQUEDA LINEAL ACOTADA (Con Centinela)
@@ -40,7 +40,7 @@ def busqueda_lineal_acotada(pedidos, codigo_buscado):
     # Si encontramos el código buscado antes del centinela, lo retornamos; de lo contrario, retornamos None
     if i < len(pedidos):
         return pedidos[i]
-    return None
+    return "Pedido no encontrado"
 
 
 # 3. BÚSQUEDA BINARIA ITERATIVA
@@ -57,31 +57,23 @@ def busqueda_binaria_iterativa(pedidos, codigo_buscado):
             izquierda = medio + 1
         else:
             derecha = medio - 1
-    return None
+    return "Pedido no encontrado"
 
 
 # 4. BÚSQUEDA BINARIA RECURSIVA
-def busqueda_binaria_recursiva(pedidos, codigo_buscado, izquierda=0, derecha=None):
+def busqueda_binaria_recursiva(pedidos, codigo_buscado, izquierda, derecha):
     # La lista de pedidos debe estar ordenada por código para que la búsqueda binaria funcione correctamente
-    if derecha is None:
-        derecha = len(pedidos) - 1
-    
-    # Caso base: si el rango de búsqueda es inválido, retornar None
     if izquierda > derecha:
-        return None
-    
+        return "Pedido no encontrado"
+        
     medio = (izquierda + derecha) // 2
     
-    # Verificar si el código del pedido en la posición media coincide con el código buscado
     if pedidos[medio]["codigo"] == codigo_buscado:
         return pedidos[medio]
     elif pedidos[medio]["codigo"] < codigo_buscado:
-        # Si el código del pedido en la posición media es menor que el código buscado, buscar en la mitad derecha
         return busqueda_binaria_recursiva(pedidos, codigo_buscado, medio + 1, derecha)
     else:
-        # Si el código del pedido en la posición media es mayor que el código buscado, buscar en la mitad izquierda
         return busqueda_binaria_recursiva(pedidos, codigo_buscado, izquierda, medio - 1)
-    
 
 # Probando la Búsqueda Lineal
 r1 = busqueda_lineal(pedidos, "P001")
@@ -102,7 +94,7 @@ print(r3)
 print("================================")
 
 # Probando la Búsqueda Binaria Recursiva
-r4 = busqueda_binaria_recursiva(pedidos, "P004")
+r4 = busqueda_binaria_recursiva(pedidos, "P002", 0, len(pedidos) - 1)
 print("\nResultado Busqueda Binaria Recursiva :")
 print(r4)
 print("================================")
