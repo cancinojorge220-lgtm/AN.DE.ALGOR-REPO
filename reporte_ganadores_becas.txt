@@ -1,10 +1,9 @@
-REPORTE OFICIAL - GANADORES DE BECAS:
--------------------------------------
-Total de alumnos que participaron: 4
-Total de becas otorgadas: 1
+REPORTE DE GANADORES DE BECAS
+===========================
+Total de alumnos que participaron: 12
+Total de becas otorgadas: 3
 
 Lista de Ganadores:
- - Beca 1: Miguel Lima Sanchez
-
--------------------------------------
-Este proceso se realizó de manera transparente.
+1. Valeria Mendoza
+2. Valentina García
+3. Diego Martínez
