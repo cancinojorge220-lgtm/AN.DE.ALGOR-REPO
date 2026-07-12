@@ -1,0 +1,31 @@
+INICIANDO PLANIFICACIÓN DE DESPACHOS
+
+DESPACHO 1
+ - A.Puno: 340 kg
+ - A.Pucallpa: 355 kg
+ - A.Ayacucho: 225 kg
+Total cargado: 920 kg.
+
+DESPACHO 2
+ - A.Cusco: 360 kg
+ - A.Iquitos: 390 kg
+ - A.Huaraz: 230 kg
+Total cargado: 980 kg.
+
+DESPACHO 3
+ - A.Arequipa: 240 kg
+ - A.Moquegua: 250 kg
+ - A.Huancayo: 260 kg
+ - A.Tacna: 190 kg
+Total cargado: 940 kg.
+
+DESPACHO 4
+ - A.Tarapoto: 275 kg
+ - A.Piura: 280 kg
+ - A.Chiclayo: 295 kg
+Total cargado: 850 kg.
+
+DESPACHO 5
+ - A.Cajamarca: 205 kg
+ - A.Trujillo: 210 kg
+Total cargado: 415 kg.

@@ -1,12 +1,14 @@
-from datos_almacenes import almacenes
+import os # Importar módulo para manejo de rutas y archivos
+from datos_almacenes import almacenes # Importar la lista de almacenes desde el archivo datos_almacenes.py
 
 # Algoritmo Voraz (Greedy)
 def calcular_carga_voraz(lista_almacenes, capacidad_max):
-    # Definir heurística: Factor de eficiencia
+    
+    # Calcular el factor de prioridad/peso para cada almacén
     for item in lista_almacenes:
         item["factor"] = (1 / item["prioridad"]) / item["peso_kg"]
     
-    # Ordenar por factor (Greedy choice: O(n log n))
+    # Ordenar los almacenes por el factor calculado (de mayor a menor)
     ordenados = sorted(lista_almacenes, key=lambda x: x["factor"], reverse=True)
     
     seleccionados = []
@@ -19,12 +21,29 @@ def calcular_carga_voraz(lista_almacenes, capacidad_max):
     
     return seleccionados, peso_actual
 
-# Ejecución 
-CAPACIDAD = 1000
-ids_procesados = set()
-viaje = 1
 
-print("--- INICIANDO PLANIFICACIÓN DE DESPACHOS ---")
+def guardar_despacho(ruta, peso, despacho_num, file_path):
+    """Escribe la información del despacho en `file_path` (añade al final)."""
+    with open(file_path, 'a', encoding='utf-8') as f:
+        f.write(f"\nDESPACHO {despacho_num}\n")
+        for sitio in ruta:
+            f.write(f" - {sitio['nombre']}: {sitio['peso_kg']} kg\n")
+        f.write(f"Total cargado: {peso} kg.\n")
+
+# Ejecución 
+CAPACIDAD = 1000 # Capacidad máxima del camión (kg)
+ids_procesados = set()
+despacho = 1
+
+# Guardar resultados en un archivo de texto
+file_path = os.path.join(os.path.dirname(__file__), 'resultado_despachos.txt')
+
+# Inicializar/limpiar archivo de resultados
+with open(file_path, 'w', encoding='utf-8') as _f:
+    _f.write("INICIANDO PLANIFICACIÓN DE DESPACHOS\n")
+
+# Bucle principal para procesar los almacenes
+print("INICIANDO PLANIFICACIÓN DE DESPACHOS")
 
 while len(ids_procesados) < len(almacenes):
     # Filtramos la lista para obtener solo los que NO han sido procesados
@@ -35,12 +54,16 @@ while len(ids_procesados) < len(almacenes):
         
     ruta, peso = calcular_carga_voraz(pendientes, CAPACIDAD)
     
-    print(f"\n>>> CAMIÓN {viaje} <<<")
+    # Guardar los IDs de los almacenes procesados
+    print(f"\nDESPACHO {despacho}")
     for sitio in ruta:
         print(f" - {sitio['nombre']}: {sitio['peso_kg']} kg")
         ids_procesados.add(sitio['id'])
         
     print(f"Total cargado: {peso} kg.")
-    viaje += 1
+    
+    # Guardar el despacho en el archivo
+    guardar_despacho(ruta, peso, despacho, file_path)
+    despacho += 1
 
-print("\n--- PROCESO FINALIZADO ---")
+print("\nPROCESO FINALIZADO")
