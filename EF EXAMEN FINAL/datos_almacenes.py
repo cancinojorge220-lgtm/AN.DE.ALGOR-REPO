@@ -1,6 +1,6 @@
 # Datos de los almacenes
 almacenes = [
-    {"id": 1, "nombre": "A.Lima", "prioridad": 1, "peso_kg": 320, "distancia_km": 120, "costo_base": 1350},
+    {"id": 1, "nombre": "A.Huaraz", "prioridad": 2, "peso_kg": 230, "distancia_km": 980, "costo_base": 2120},
     {"id": 2, "nombre": "A.Piura", "prioridad": 2, "peso_kg": 280, "distancia_km": 980, "costo_base": 2450},
     {"id": 3, "nombre": "A.Cusco", "prioridad": 1, "peso_kg": 360, "distancia_km": 1110, "costo_base": 2650},
     {"id": 4, "nombre": "A.Arequipa", "prioridad": 2, "peso_kg": 240, "distancia_km": 1015, "costo_base": 2380},

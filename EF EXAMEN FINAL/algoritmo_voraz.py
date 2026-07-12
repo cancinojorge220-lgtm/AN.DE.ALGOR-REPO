@@ -1,12 +1,12 @@
-# Algoritmo voraz para seleccionar almacenes a cargar en un camión
+from datos_almacenes import almacenes
+
+# Algoritmo Voraz (Greedy)
 def calcular_carga_voraz(lista_almacenes, capacidad_max):
-    # Calculamos el factor de eficiencia
+    # Definir heurística: Factor de eficiencia
     for item in lista_almacenes:
-        # Prioridad 1 es la más alta, peso_kg es el costo de capacidad
-        # Factor = (1/prioridad) / peso_kg
         item["factor"] = (1 / item["prioridad"]) / item["peso_kg"]
     
-    # Ordenamos de mayor a menor factor (Greedy choice)
+    # Ordenar por factor (Greedy choice: O(n log n))
     ordenados = sorted(lista_almacenes, key=lambda x: x["factor"], reverse=True)
     
     seleccionados = []
@@ -16,19 +16,31 @@ def calcular_carga_voraz(lista_almacenes, capacidad_max):
         if peso_actual + almacen["peso_kg"] <= capacidad_max:
             seleccionados.append(almacen)
             peso_actual += almacen["peso_kg"]
-            
+    
     return seleccionados, peso_actual
 
-# Ejemplo de uso
-from datos_almacenes import almacenes
-from algoritmo_voraz import calcular_carga_voraz
+# Ejecución 
+CAPACIDAD = 1000
+ids_procesados = set()
+viaje = 1
 
-# Definimos la capacidad máxima del camión
-CAPACIDAD = 1000   # kg
-seleccionados, peso_total = calcular_carga_voraz(almacenes, CAPACIDAD)
+print("--- INICIANDO PLANIFICACIÓN DE DESPACHOS ---")
 
-# Mostramos los resultados
-print("Almacenes seleccionados para cargar en el camión:")
-for almacen in seleccionados:
-    print(f" - {almacen['nombre']}: {almacen['peso_kg']} kg")
-print(f"Capacidad utilizada: {peso_total} kg de {CAPACIDAD} kg.")
+while len(ids_procesados) < len(almacenes):
+    # Filtramos la lista para obtener solo los que NO han sido procesados
+    pendientes = [a for a in almacenes if a['id'] not in ids_procesados]
+    
+    if not pendientes:
+        break
+        
+    ruta, peso = calcular_carga_voraz(pendientes, CAPACIDAD)
+    
+    print(f"\n>>> CAMIÓN {viaje} <<<")
+    for sitio in ruta:
+        print(f" - {sitio['nombre']}: {sitio['peso_kg']} kg")
+        ids_procesados.add(sitio['id'])
+        
+    print(f"Total cargado: {peso} kg.")
+    viaje += 1
+
+print("\n--- PROCESO FINALIZADO ---")
