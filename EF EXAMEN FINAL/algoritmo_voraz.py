@@ -21,7 +21,6 @@ def calcular_carga_voraz(lista_almacenes, capacidad_max):
     
     return seleccionados, peso_actual
 
-
 def guardar_despacho(ruta, peso, despacho_num, file_path):
     """Escribe la información del despacho en `file_path` (añade al final)."""
     with open(file_path, 'a', encoding='utf-8') as f:
@@ -30,13 +29,14 @@ def guardar_despacho(ruta, peso, despacho_num, file_path):
             f.write(f" - {sitio['nombre']}: {sitio['peso_kg']} kg\n")
         f.write(f"Total cargado: {peso} kg.\n")
 
+# Guardar resultados en un archivo de texto
+file_path = os.path.join(os.path.dirname(__file__), 'resultado_despachos.txt')
+
 # Ejecución 
 CAPACIDAD = 1000 # Capacidad máxima del camión (kg)
 ids_procesados = set()
 despacho = 1
 
-# Guardar resultados en un archivo de texto
-file_path = os.path.join(os.path.dirname(__file__), 'resultado_despachos.txt')
 
 # Inicializar/limpiar archivo de resultados
 with open(file_path, 'w', encoding='utf-8') as _f:
